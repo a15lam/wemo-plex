@@ -3,6 +3,7 @@ return [
     'host' => '192.168.1.145',
     'port' => '32400',
     'api'  => 'status/sessions',
+    'dim_on_pause' => 40,
     'log_level' => \a15lam\WemoPlex\Logger::INFO,
     'log_path' => __DIR__ . '/storage/logs/',
     'timezone' => 'America/New_York',

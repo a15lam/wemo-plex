@@ -26,14 +26,14 @@ class Watcher
         $player = $this->plex->getPlayer();
         
         if(!empty($player)) {
-            Logger::info('Current player - ' . $player['title'] . ':' . $player['state']);
+            Logger::debug('Current player - ' . $player['title'] . ':' . $player['state']);
             $this->lastPlayer = $player;
             switch ($player['state']) {
                 case 'playing':
                     $this->wemo->off($player['title']);
                     break;
                 case 'paused':
-                    $this->wemo->on($player['title']);
+                    $this->wemo->dim($player['title'], Config::get('dim_on_pause', 40));
                     break;
                 default:
                     $this->wemo->on($player['title']);
