@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arif
- * Date: 6/25/16
- * Time: 12:57 AM
- */
 
 namespace a15lam\WemoPlex\Contracts;
 

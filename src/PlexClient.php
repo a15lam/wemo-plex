@@ -1,14 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arif
- * Date: 6/25/16
- * Time: 12:21 AM
- */
 
 namespace a15lam\WemoPlex;
 
 use a15lam\WemoPlex\Contracts\PlexInterface;
+use a15lam\Exceptions\PlexException;
 
 class PlexClient implements PlexInterface
 {
@@ -27,7 +22,7 @@ class PlexClient implements PlexInterface
             if(isset($config['host'])){
                 $host = $config['host'];
             } else {
-                throw new \Exception("PlexClient config is missing 'host'");
+                throw new PlexException("PlexClient config is missing 'host'");
             }
             
             $port = (isset($config['port']))? $config['port'] : static::PORT;
@@ -55,7 +50,7 @@ class PlexClient implements PlexInterface
             $response = json_decode($response, true);
             return $response;
         } catch (\Exception $e) {
-            throw $e;
+            throw new PlexException("Failed to make curl request ". $e->getMessage());
         }
     }
 
@@ -79,7 +74,9 @@ class PlexClient implements PlexInterface
                 }
             }
         }
-
+        
+        Logger::debug("No status returned from Plex server. Probably no media is playing.");
+        
         return null;
     }
 }

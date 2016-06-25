@@ -1,13 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arif
- * Date: 6/25/16
- * Time: 12:47 AM
- */
 
 namespace a15lam\WemoPlex;
 
+use a15lam\Exceptions\WemoException;
 use a15lam\PhpWemo\Discovery;
 use a15lam\WemoPlex\Contracts\WemoInterface;
 
@@ -20,9 +15,9 @@ class WemoClient implements WemoInterface
     {
         foreach ($mapping as $key => $map){
             if(!isset($map['player'])){
-                throw new \Exception("No 'player' set in device mapping");
+                throw new WemoException("No 'player' set in device mapping");
             } elseif (!isset($map['wemo'])){
-                throw new \Exception("No 'wemo' set in device mapping");
+                throw new WemoException("No 'wemo' set in device mapping");
             }
             
             $wemoInstance = [];
@@ -86,6 +81,6 @@ class WemoClient implements WemoInterface
             }
         }
         
-        throw new \Exception("No wemo mapping found for player $player");
+        throw new WemoException("No wemo mapping found for player $player");
     }
 }

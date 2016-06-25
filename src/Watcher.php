@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: arif
- * Date: 6/25/16
- * Time: 1:07 AM
- */
 
 namespace a15lam\WemoPlex;
 
@@ -32,6 +26,7 @@ class Watcher
         $player = $this->plex->getPlayer();
         
         if(!empty($player)) {
+            Logger::info('Current player - ' . $player['title'] . ':' . $player['state']);
             $this->lastPlayer = $player;
             switch ($player['state']) {
                 case 'playing':
@@ -48,6 +43,6 @@ class Watcher
             $this->wemo->on($this->lastPlayer['title']);
         }
 
-        echo "Running... [" . $this->wemo->getStatus() . "]" . PHP_EOL;
+        Logger::debug("Running... [" . $this->wemo->getStatus() . "]");
     }
 }
