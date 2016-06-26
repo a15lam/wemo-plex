@@ -44,7 +44,7 @@ return [
      *   ],
      *   [
      *       'player' => 'Plex Web (Chrome)',
-     *       'wemo'   => ['1 Miya', '2 Biwi']  // Supports multiple Wemo devices for a Plex player.
+     *       'wemo'   => ['light 1', 'light 2']  // Supports multiple Wemo devices for a Plex player.
      *   ]
      * ]
      * 
