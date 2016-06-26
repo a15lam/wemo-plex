@@ -3,8 +3,8 @@
 namespace a15lam\WemoPlex;
 
 use a15lam\Exceptions\WemoException;
+use a15lam\PhpWemo\Contracts\DeviceInterface;
 use a15lam\PhpWemo\Discovery;
-use a15lam\PhpWemo\Traits\Dimmable;
 use a15lam\WemoPlex\Contracts\WemoInterface;
 
 class WemoClient implements WemoInterface
@@ -43,8 +43,9 @@ class WemoClient implements WemoInterface
             $wemo = $this->getMapByPlayer($player);
 
             Logger::info('Lights turning on. Hope you enjoyed the movie.');
+            /** @type DeviceInterface $device */
             foreach ($wemo as $device) {
-                if($this->isDimmable($device)){
+                if($device->isDimmable()){
                     logger::debug('[on] Device dimmable. Setting to 100%.');
                     $device->dim(100);
                 } else {
@@ -84,8 +85,9 @@ class WemoClient implements WemoInterface
             $wemo = $this->getMapByPlayer($player);
 
             Logger::info('Lights turning on. Movie paused, take a quick break!');
+            /** @type DeviceInterface $device */
             foreach ($wemo as $device) {
-                if($this->isDimmable($device)){
+                if($device->isDimmable()){
                     Logger::debug('[dim] Device dimmable. Dimming to ' . $percent . '%');
                     $device->dim($percent);
                 } else {
@@ -118,17 +120,5 @@ class WemoClient implements WemoInterface
         }
         
         throw new WemoException("No wemo mapping found for player $player");
-    }
-
-    protected function isDimmable($device)
-    {
-        $traits = class_uses($device);
-        $traits = array_keys($traits);
-
-        if(in_array(Dimmable::class, $traits)){
-            return true;
-        }
-
-        return false;
     }
 }

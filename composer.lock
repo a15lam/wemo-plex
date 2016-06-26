@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a15lam/php-wemo.git",
-                "reference": "5b8bdf1d59139e052da004f6a1fb2ed68c77b9e8"
+                "reference": "32b2115ed8c130f3a365a81f1d7cd06e3b238090"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a15lam/php-wemo/zipball/5b8bdf1d59139e052da004f6a1fb2ed68c77b9e8",
-                "reference": "5b8bdf1d59139e052da004f6a1fb2ed68c77b9e8",
+                "url": "https://api.github.com/repos/a15lam/php-wemo/zipball/32b2115ed8c130f3a365a81f1d7cd06e3b238090",
+                "reference": "32b2115ed8c130f3a365a81f1d7cd06e3b238090",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "php-wemo",
                 "soap"
             ],
-            "time": "2016-05-20 21:58:22"
+            "time": "2016-06-26 03:47:13"
         },
         {
             "name": "clue/multicast-react",
