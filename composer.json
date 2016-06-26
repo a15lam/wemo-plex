@@ -1,0 +1,32 @@
+{
+  "name": "a15lam/wemo-plex",
+  "description": "Control Wemo devices by Plex Media Server activity",
+  "homepage": "https://github.com/a15lam/wemo-plex",
+  "keywords": [
+    "Wemo",
+    "Plex",
+    "wemo-plex",
+    "DLNA",
+    "Home Theater"
+  ],
+  "license": [
+    "Apache-2.0"
+  ],
+  "authors": [
+    {
+      "name": "Arif Islam",
+      "email": "areef.islam@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.5",
+    "a15lam/php-wemo": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "a15lam\\WemoPlex\\": "src/"
+    }
+  }
+}
