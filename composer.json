@@ -1,6 +1,6 @@
 {
   "name": "a15lam/wemo-plex",
-  "description": "Control Wemo devices by plex activity",
+  "description": "Control Wemo devices by Plex Media Server activity",
   "homepage": "https://github.com/a15lam/wemo-plex",
   "keywords": [
     "Wemo",
