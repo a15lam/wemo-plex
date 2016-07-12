@@ -2,7 +2,12 @@
 
 namespace a15lam\WemoPlex\Contracts;
 
-interface PlexInterface
+/**
+ * Interface MediaInterface
+ *
+ * @package a15lam\WemoPlex\Contracts
+ */
+interface MediaInterface
 {
     public function getStatus();
     
