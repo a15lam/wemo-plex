@@ -2,15 +2,25 @@
 
 namespace a15lam\WemoPlex;
 
+/**
+ * Class Watcher
+ *
+ * Watches the Plex Media Server and controls Wemo device(s) as needed.
+ *
+ * @package a15lam\WemoPlex
+ */
 class Watcher
 {
-    /** @type \a15lam\WemoPlex\WemoClient  */
+    /** @type \a15lam\WemoPlex\WemoClient */
     protected $wemo;
-    /** @type \a15lam\WemoPlex\PlexClient  */
+    /** @type \a15lam\WemoPlex\PlexClient */
     protected $plex;
-    
+    /** @type null An internal flag to keep track of last player */
     protected $lastPlayer = null;
 
+    /**
+     * Watcher constructor.
+     */
     public function __construct()
     {
         $this->wemo = new WemoClient(Config::get('device_mapping'));
@@ -21,11 +31,14 @@ class Watcher
         ]);
     }
 
+    /**
+     * Run it!
+     */
     public function run()
     {
         $player = $this->plex->getPlayer();
-        
-        if(!empty($player)) {
+
+        if (!empty($player)) {
             Logger::debug('Current player - ' . $player['title'] . ':' . $player['state']);
             $this->lastPlayer = $player;
             switch ($player['state']) {
@@ -39,7 +52,7 @@ class Watcher
                     $this->wemo->on($player['title']);
                     break;
             }
-        } elseif(!empty($this->lastPlayer)) {
+        } elseif (!empty($this->lastPlayer)) {
             $this->wemo->on($this->lastPlayer['title']);
         }
 

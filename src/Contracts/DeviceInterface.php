@@ -2,7 +2,12 @@
 
 namespace a15lam\WemoPlex\Contracts;
 
-interface WemoInterface
+/**
+ * Interface DeviceInterface
+ *
+ * @package a15lam\WemoPlex\Contracts
+ */
+interface DeviceInterface
 {
     public function on($player);
     
