@@ -30,6 +30,13 @@ return [
      */
     'timezone'       => 'America/New_York',
     /*
+     * Set on_time to true to only control wemo devices
+     * between the specified start_time and end_time
+     */
+    'on_time'        => true,
+    'start_time'     => '06:00 PM',
+    'end_time'       => '06:00 AM NEXT DAY',
+    /*
      * Plex media player - to - Wemo device mapping.
      * Example:
      * 
