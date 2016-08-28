@@ -2,7 +2,7 @@
 
 namespace a15lam\Exceptions;
 
-use a15lam\WemoPlex\Logger;
+use a15lam\WemoPlex\Workspace as WS;
 
 /**
  * Class InternalException
@@ -18,7 +18,7 @@ class InternalException extends \Exception
      */
     public function __construct($msg)
     {
-        Logger::error($msg);
+        WS::log()->error($msg);
 
         return parent::__construct($msg, 500);
     }

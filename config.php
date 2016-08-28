@@ -20,7 +20,7 @@ return [
     /*
      * Set log level. Honors hierarchy of ERROR->WARNING->INFO->DEBUG
      */
-    'log_level'      => \a15lam\WemoPlex\Logger::INFO,
+    'log_level'      => \a15lam\Workspace\Utility\Logger::DEBUG,
     /*
      * Set the directory where log file will be written. 
      */
@@ -33,7 +33,7 @@ return [
      * Set on_time to true to only control wemo devices
      * between the specified start_time and end_time
      */
-    'on_time'        => true,
+    'on_time'        => false,
     'start_time'     => '06:00 PM',
     'end_time'       => '06:00 AM NEXT DAY',
     /*

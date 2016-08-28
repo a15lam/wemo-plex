@@ -4,6 +4,7 @@ namespace a15lam\WemoPlex;
 
 use a15lam\WemoPlex\Contracts\MediaInterface;
 use a15lam\Exceptions\PlexException;
+use a15lam\WemoPlex\Workspace as WS;
 
 /**
  * Class PlexClient
@@ -112,7 +113,7 @@ class PlexClient implements MediaInterface
             }
         }
 
-        Logger::debug("No status returned from Plex server. Probably no media is playing.");
+        WS::log()->debug("No status returned from Plex server. Probably no media is playing.");
 
         return null;
     }
