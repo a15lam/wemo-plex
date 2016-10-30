@@ -67,7 +67,7 @@ return [
         ],
         [
             'player' => 'Plex Web (Chrome)',
-            'wemo'   => ['1 Miya', '2 Biwi']
+            'wemo'   => ['arif', 'afrin']
         ]
     ]
 ];
