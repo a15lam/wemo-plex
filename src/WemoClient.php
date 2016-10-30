@@ -6,6 +6,7 @@ use a15lam\Exceptions\WemoException;
 use a15lam\PhpWemo\Discovery;
 use a15lam\WemoPlex\Contracts\DeviceInterface;
 use a15lam\PhpWemo\Contracts\DeviceInterface as WemoInterface;
+use a15lam\WemoPlex\Workspace as WS;
 
 /**
  * Class WemoClient
@@ -80,14 +81,15 @@ class WemoClient implements DeviceInterface
         if ($this->played === true) {
             $wemo = $this->getMapByPlayer($player);
 
-            Logger::info('Lights turning on. Hope you enjoyed the movie.');
+
+            WS::log()->info('Lights turning on. Hope you enjoyed the movie.');
             /** @type WemoInterface $device */
             foreach ($wemo as $device) {
                 if ($device->isDimmable()) {
-                    logger::debug('[on] Device dimmable. Setting to 100%.');
+                    WS::log()->debug('[on] Device dimmable. Setting to 100%.');
                     $device->dim(100);
                 } else {
-                    logger::debug('[on] Device not dimmable. Tunring on.');
+                    WS::log()->debug('[on] Device not dimmable. Tunring on.');
                     $device->On();
                 }
             }
@@ -113,7 +115,7 @@ class WemoClient implements DeviceInterface
         if ($this->played === false) {
             $wemo = $this->getMapByPlayer($player);
 
-            Logger::info('Lights turning off. Enjoy your movie!');
+            WS::log()->info('Lights turning off. Enjoy your movie!');
             foreach ($wemo as $device) {
                 $device->Off();
             }
@@ -140,14 +142,14 @@ class WemoClient implements DeviceInterface
         if ($this->played === true) {
             $wemo = $this->getMapByPlayer($player);
 
-            Logger::info('Lights turning on. Movie paused, take a quick break!');
+            WS::log()->info('Lights turning on. Movie paused, take a quick break!');
             /** @type WemoInterface $device */
             foreach ($wemo as $device) {
                 if ($device->isDimmable()) {
-                    Logger::debug('[dim] Device dimmable. Dimming to ' . $percent . '%');
+                    WS::log()->debug('[dim] Device dimmable. Dimming to ' . $percent . '%');
                     $device->dim($percent);
                 } else {
-                    Logger::debug('[dim] Device not dimmable. Turning on.');
+                    WS::log()->debug('[dim] Device not dimmable. Turning on.');
                     $device->On();
                 }
             }
