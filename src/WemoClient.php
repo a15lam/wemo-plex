@@ -81,6 +81,7 @@ class WemoClient implements DeviceInterface
         if ($this->played === true) {
             $wemo = $this->getMapByPlayer($player);
 
+
             WS::log()->info('Lights turning on. Hope you enjoyed the movie.');
             /** @type WemoInterface $device */
             foreach ($wemo as $device) {

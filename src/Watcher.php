@@ -41,7 +41,9 @@ class Watcher
         $player = $this->plex->getPlayer();
 
         if (!empty($player)) {
+
             WS::log()->debug('Current player - ' . $player['title'] . ':' . $player['state']);
+
             $this->lastPlayer = $player;
             switch ($player['state']) {
                 case 'playing':
