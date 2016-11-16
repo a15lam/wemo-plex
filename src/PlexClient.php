@@ -94,12 +94,16 @@ class PlexClient implements MediaInterface
     public function getPlayer()
     {
         $status = $this->getStatus();
-        $info = ArrayFunc::get($status, 'MediaContainer.Video.Player_attr');
+        if(is_array($status)) {
+            $info = (isset($status['MediaContainer']))?
+                (isset($status['MediaContainer']['Video']))?
+                    (isset($status['MediaContainer']['Video']['Player_attr']))?
+                        $status['MediaContainer']['Video']['Player_attr'] : null : null : null;
 
-        if (!empty($info)) {
-            return $info;
+            if (!empty($info)) {
+                return $info;
+            }
         }
-
         WS::log()->debug("No status returned from Plex server. Probably no media is playing.");
 
         return null;
