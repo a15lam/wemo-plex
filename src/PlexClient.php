@@ -5,6 +5,8 @@ namespace a15lam\WemoPlex;
 use a15lam\WemoPlex\Contracts\MediaInterface;
 use a15lam\Exceptions\PlexException;
 use a15lam\WemoPlex\Workspace as WS;
+use a15lam\Workspace\Utility\ArrayFunc;
+use a15lam\Workspace\Utility\DataFormat;
 
 /**
  * Class PlexClient
@@ -69,16 +71,13 @@ class PlexClient implements MediaInterface
             $options = [
                 CURLOPT_URL            => $this->url,
                 CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_VERBOSE        => false,
-                CURLOPT_HTTPHEADER     => [
-                    'Accept:application/json'
-                ]
+                CURLOPT_VERBOSE        => false
             ];
 
             $ch = curl_init();
             curl_setopt_array($ch, $options);
             $response = curl_exec($ch);
-            $response = json_decode($response, true);
+            $response = DataFormat::xmlToArray($response, 1);
 
             return $response;
         } catch (\Exception $e) {
@@ -95,22 +94,10 @@ class PlexClient implements MediaInterface
     public function getPlayer()
     {
         $status = $this->getStatus();
-        $info = $status['_children'];
+        $info = ArrayFunc::get($status, 'MediaContainer.Video.Player_attr');
 
         if (!empty($info)) {
-            $video = [];
-            foreach ($info as $inf) {
-                if (isset($inf['_elementType']) && $inf['_elementType'] === 'Video') {
-                    $video = $inf['_children'];
-                    break;
-                }
-            }
-
-            foreach ($video as $v) {
-                if (isset($v['_elementType']) && $v['_elementType'] === 'Player') {
-                    return $v;
-                }
-            }
+            return $info;
         }
 
         WS::log()->debug("No status returned from Plex server. Probably no media is playing.");

@@ -13,18 +13,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a15lam/php-wemo.git",
-                "reference": "a9d0f04ac7febcf4c4cd88c2e2d43fec4cba808d"
+                "reference": "6e0053826d88dc8edfaff000be1f98beb3651ae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a15lam/php-wemo/zipball/a9d0f04ac7febcf4c4cd88c2e2d43fec4cba808d",
-                "reference": "a9d0f04ac7febcf4c4cd88c2e2d43fec4cba808d",
+                "url": "https://api.github.com/repos/a15lam/php-wemo/zipball/6e0053826d88dc8edfaff000be1f98beb3651ae7",
+                "reference": "6e0053826d88dc8edfaff000be1f98beb3651ae7",
                 "shasum": ""
             },
             "require": {
-                "a15lam/workspace": "dev-develop as dev-master",
+                "a15lam/workspace": "dev-master",
                 "clue/ssdp-react": "dev-master",
-                "php": ">=5.5"
+                "php": ">=5.6"
             },
             "type": "library",
             "autoload": {
@@ -49,7 +49,7 @@
                 "php-wemo",
                 "soap"
             ],
-            "time": "2016-10-30 16:59:05"
+            "time": "2016-11-06 03:34:31"
         },
         {
             "name": "a15lam/workspace",
@@ -57,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a15lam/workspace.git",
-                "reference": "61b48d63fae520e8cbed48a2ab7f874e641d9125"
+                "reference": "5816b22afe64fcf7fede7b2f0f70e997f1b52cc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a15lam/workspace/zipball/61b48d63fae520e8cbed48a2ab7f874e641d9125",
-                "reference": "61b48d63fae520e8cbed48a2ab7f874e641d9125",
+                "url": "https://api.github.com/repos/a15lam/workspace/zipball/5816b22afe64fcf7fede7b2f0f70e997f1b52cc8",
+                "reference": "5816b22afe64fcf7fede7b2f0f70e997f1b52cc8",
                 "shasum": ""
             },
             "require": {
@@ -91,7 +91,7 @@
                 "framework",
                 "utility"
             ],
-            "time": "2016-10-30 18:42:51"
+            "time": "2016-11-16 04:20:29"
         },
         {
             "name": "clue/multicast-react",
@@ -496,16 +496,16 @@
         },
         {
             "name": "react/stream",
-            "version": "v0.4.4",
+            "version": "v0.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/stream.git",
-                "reference": "fcc9e7cea126962cff303c90c05e2efdcec09a27"
+                "reference": "23389503012e1ab721ad498a5a1f4b39f7a43c00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/stream/zipball/fcc9e7cea126962cff303c90c05e2efdcec09a27",
-                "reference": "fcc9e7cea126962cff303c90c05e2efdcec09a27",
+                "url": "https://api.github.com/repos/reactphp/stream/zipball/23389503012e1ab721ad498a5a1f4b39f7a43c00",
+                "reference": "23389503012e1ab721ad498a5a1f4b39f7a43c00",
                 "shasum": ""
             },
             "require": {
@@ -536,7 +536,7 @@
                 "pipe",
                 "stream"
             ],
-            "time": "2016-08-22 09:51:07"
+            "time": "2016-11-13 17:06:02"
         }
     ],
     "packages-dev": [],
