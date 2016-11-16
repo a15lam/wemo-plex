@@ -20,7 +20,7 @@ return [
     /*
      * Set log level. Honors hierarchy of ERROR->WARNING->INFO->DEBUG
      */
-    'log_level'      => \a15lam\Workspace\Utility\Logger::ERROR,
+    'log_level'      => \a15lam\Workspace\Utility\Logger::INFO,
     /*
      * Set the directory where log file will be written. 
      */
